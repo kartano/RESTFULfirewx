@@ -1,0 +1,17 @@
+volumes:
+  log:
+  ssh:
+    external: true
+  sshd_config:
+
+services:
+  laminas:
+    build: .
+    restart: "on-failure"
+    environment:
+      APPLICATION_ENV: $APPLICATION_ENV
+    volumes:
+      - "./:/var/www"
+      - "log:/var/log/"
+    ports:
+      - '80:80'
