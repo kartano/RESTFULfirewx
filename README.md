@@ -5,52 +5,52 @@ This script is licensed under the GPL 3.0 and may be modified and shared provide
 ## Docker setup
 1. Create a file in your user folder called `env.txt` to contain settings.  This should include the password to use for SSH access to the server.
 
-**NEVER COMMIT THIS FILE TO A REPOSITORY!**
-It should sit well outside the project folder.
-
-```
-APPLICATION_ENV=local
-DEVELOPER_ENV=smmitchell
-```
-
-Application Environment can be one of `local`, `development` or `production`.
-Developer environment should reflect your own name.
+   **NEVER COMMIT THIS FILE TO A REPOSITORY!**
+   It should sit well outside the project folder.
+   
+   ```
+   APPLICATION_ENV=local
+   DEVELOPER_ENV=smmitchell
+   ```
+   
+   Application Environment can be one of `local`, `development` or `production`.
+   Developer environment should reflect your own name.
 
 2. Build the docker container.
 
-```bash
-cd project_folder
-docker-compose --env-file <PATH TO YOUR .ENV FILE> build --progress=plain
-```
-
-A secure random root password will be generated during the build.
-Keep a safe record of this password but **NEVER** include it in the repository!
-You will need this password to obtain root ssh access to the container.
-During the build you will see the generated password displayed:
-
-```bash
-#11 0.306 ================================================================================
-#11 0.307 ================================================================================
-#11 0.307
-#11 0.307 Container's root password follows
-#11 0.307
-#11 0.307 PLEASE NOTE THIS VALUE - DO NOT INCLUDE IT ANYWHERE IN YOUR REPO
-#11 0.307
-#11 0.307 abcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabca
-#11 0.307
-#11 0.307 ================================================================================
-#11 0.308 ================================================================================
-#
-```
+   ```bash
+   cd project_folder
+   docker-compose --env-file <PATH TO YOUR .ENV FILE> build --progress=plain
+   ```
+   
+   A secure random root password will be generated during the build.
+   Keep a safe record of this password but **NEVER** include it in the repository!
+   You will need this password to obtain root ssh access to the container.
+   During the build you will see the generated password displayed:
+   
+   ```bash
+   #11 0.306 ================================================================================
+   #11 0.307 ================================================================================
+   #11 0.307
+   #11 0.307 Container's root password follows
+   #11 0.307
+   #11 0.307 PLEASE NOTE THIS VALUE - DO NOT INCLUDE IT ANYWHERE IN YOUR REPO
+   #11 0.307
+   #11 0.307 abcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabca
+   #11 0.307
+   #11 0.307 ================================================================================
+   #11 0.308 ================================================================================
+   #
+   ```
 
 ## Running the container
 
 1. Have docker bring the container up.
 
-```bash
-cd project_folder
-docker-compose --env-file <PATH TO YOUR .ENV FILE> up -d
-```
+   ```bash
+   cd project_folder
+   docker-compose --env-file <PATH TO YOUR .ENV FILE> up -d
+   ```
 
 2. If you have Docker Desktop you should now see the container installed and ready to use.
 
@@ -58,10 +58,10 @@ docker-compose --env-file <PATH TO YOUR .ENV FILE> up -d
 
 1. Open an ssh terminal connection to the new container and execute the following:
 
-```bash
-cd /var/www
-composer install
-```
+   ```bash
+   cd /var/www
+   composer install
+   ```
 
 ## Project specific instructions
 
@@ -74,10 +74,10 @@ The template is designed to use PHPUnit testing.
 
 1. Open an ssh terminal connection to the new container and execute the following:
 
-```bash
-$ cd /var/www
-$ ./vendor/bin/phpunit
-```
+   ```bash
+   $ cd /var/www
+   $ ./vendor/bin/phpunit
+   ```
 
 ## Legacy Installation
 
