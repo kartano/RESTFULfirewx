@@ -1,4 +1,10 @@
-_site/*
+.DS_Store
+.idea/
+composer.phar
 vendor/*
-.jekyll-cache
-_layouts/.jekyll-cache
+data/cache/*
+!data/cache/.gitkeep
+emberjs/vendor/*
+.phpunit.result.cache
+junit-ember.xml
+.php-cs-fixer.cache
