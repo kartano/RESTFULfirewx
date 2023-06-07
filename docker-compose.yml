@@ -15,3 +15,4 @@ services:
       - "log:/var/log/"
     ports:
       - '80:80'
+      - '443:443'

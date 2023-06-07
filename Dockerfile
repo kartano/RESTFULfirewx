@@ -199,10 +199,10 @@ RUN apt-get update -y && apt-get install -y symfony-cli
 # Copy over our Apache conf file
 ########################################################################################################################
 
-# Adjust Apache settings to match what we need for a Laminas project.
-RUN a2enmod rewrite \
-    && sed -i 's!/var/www/html!/var/www/public!g' /etc/apache2/sites-available/000-default.conf \
-    && mv /var/www/html /var/www/public
+#FIXME:  Do we need to juggle the path for a Symfony project?
+#RUN a2enmod rewrite \
+#    && sed -i 's!/var/www/html!/var/www/public!g' /etc/apache2/sites-available/000-default.conf \
+#    && mv /var/www/html /var/www/public
 
 COPY ./build/docker/apache.conf /etc/apache2/conf-enabled/firewx.conf
 
